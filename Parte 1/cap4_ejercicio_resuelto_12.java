@@ -2,10 +2,9 @@ import java.util.Scanner;
 
 public class cap4_ejercicio_resuelto_12 {
     public static void main(String[] args) {
-        // Crear un objeto Scanner para leer los datos de entrada
+
         Scanner scanner = new Scanner(System.in);
 
-        // Solicitar los datos del trabajador
         System.out.print("Ingrese el nombre del trabajador: ");
         String NOM = scanner.nextLine();
 
@@ -15,26 +14,24 @@ public class cap4_ejercicio_resuelto_12 {
         System.out.print("Ingrese el valor recibido por una hora normal de trabajo (VHN): ");
         double VHN = scanner.nextDouble();
 
-        // Declarar variables necesarias
-        int HET = 0;  // Horas extras trabajadas
-        int HEE8 = 0; // Horas extras que exceden de 8
-        double SALARIO = 0; // Salario total
+        int HET = 0;
+        int HEE8 = 0;
+        double SALARIO = 0;
 
-        // Calcular el salario
         if (NHT > 40) {
-            HET = NHT - 40; // Calcular horas extras
+            HET = NHT - 40;
             if (HET > 8) {
-                HEE8 = HET - 8; // Calcular horas extras que exceden de 8
-                SALARIO = (40 * VHN) + (8 * 2 * VHN) + (HEE8 * 3 * VHN); // Salario con horas extra al triple
+                HEE8 = HET - 8;
+                SALARIO = (40 * VHN) + (8 * 2 * VHN) + (HEE8 * 3 * VHN);
             } else {
-                SALARIO = (40 * VHN) + (HET * 2 * VHN); // Salario con horas extra al doble
+                SALARIO = (40 * VHN) + (HET * 2 * VHN);
             }
         } else {
-            SALARIO = NHT * VHN; // Salario sin horas extra
+            SALARIO = NHT * VHN;
         }
 
-        // Mostrar el resultado
-        System.out.println("EL TRABAJADOR " + NOM + " DEVENGO: $" + String.format("%.2f", SALARIO));
+        System.out.println("EL TRABAJADOR " + NOM + " DEVENGO: $" 
+                            + String.format("%.2f", SALARIO));
 
         scanner.close();
     }
